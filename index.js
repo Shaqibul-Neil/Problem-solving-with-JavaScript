@@ -154,6 +154,17 @@ Example:
 Input: 5
 Output: 120*/
 
+const aNumber = 3;
+const factorialOfANumber = (num) => {
+  if (num < 0) return 0;
+  let total = 1;
+  for (let i = 1; i <= num; i++) {
+    total = total * i;
+  }
+  return total;
+};
+//console.log(factorialOfANumber(aNumber));
+
 /***************************************************************************** */
 /***************************************************************************** */
 
