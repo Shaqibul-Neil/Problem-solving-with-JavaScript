@@ -135,6 +135,14 @@ Example:
 Input: "hello world"
 Output: "Hello World"*/
 
+const sentence = "hello world";
+const capitalizeTheFirstLetter = (str) =>
+  str
+    .split(" ")
+    .map((el) => (el ? el[0].toUpperCase() + el.slice(1) : ""))
+    .join(" ");
+//console.log(capitalizeTheFirstLetter(sentence));
+
 /***************************************************************************** */
 /***************************************************************************** */
 
