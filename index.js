@@ -105,6 +105,10 @@ Example:
 Input: [1, 2, 3, 4]
 Output: 10*/
 
+const numArr = [1, 2, 3, 4];
+const sumOfAllNumbers = (arr) => arr.reduce((accu, curr) => accu + curr, 0);
+//console.log(sumOfAllNumbers(numArr));
+
 /***************************************************************************** */
 /***************************************************************************** */
 
