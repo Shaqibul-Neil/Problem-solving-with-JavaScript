@@ -20,6 +20,30 @@ Example:
 Input: "programming"
 Output: 3*/
 
+//solution 1
+const vowels = ["a", "e", "i", "o", "u"];
+const input = "programming";
+const numberOfVowels = (input) => {
+  let output = 0;
+  const arr = input.split("");
+  for (let el of arr) {
+    if (vowels.includes(el.toLowerCase())) {
+      output++;
+    }
+  }
+  return output;
+};
+const result = numberOfVowels(input);
+//console.log(result);
+
+//solution 2
+const withReduce = (input) =>
+  input.split("").reduce((accu, curr) => {
+    if (vowels.includes(curr.toLowerCase())) return accu + 1;
+    else return accu;
+  }, 0);
+//console.log(withReduce(input));
+
 /*Problem 3: Check for Palindrome
 Write a function that checks if a string is a palindrome (reads the same forward and backward).
 
