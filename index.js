@@ -5,7 +5,12 @@ Example:
 Input: "hello"
 Output: "olleh"*/
 
-const string = "hello";
+const string = "I'm a coder";
+const string2 = "hello";
+const reversedString = (value) => value.split("").reverse().join("");
+const newString = reversedString(string);
+const newString2 = reversedString(string2);
+//console.log({ ["I'm a coder"]: newString }, { ["hello"]: newString2 });
 
 /*Problem 2: Count Vowels in a String
 Write a function that counts how many vowels (a, e, i, o, u) are in a given string.
