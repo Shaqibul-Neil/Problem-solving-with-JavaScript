@@ -10,7 +10,7 @@ const string2 = "hello";
 const reversedString = (value) => value.split("").reverse().join("");
 const newString = reversedString(string);
 const newString2 = reversedString(string2);
-//console.log({ ["I'm a coder"]: newString }, { ["hello"]: newString2 });
+console.log({ ["I'm a coder"]: newString }, { ["hello"]: newString2 });
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -26,17 +26,17 @@ Output: 3*/
 //solution 1
 const vowels = ["a", "e", "i", "o", "u"];
 const input = "programming";
-const numberOfVowels = (input) => {
-  let output = 0;
-  const arr = input.split("");
-  for (let el of arr) {
-    if (vowels.includes(el.toLowerCase())) {
-      output++;
-    }
-  }
-  return output;
-};
-const result = numberOfVowels(input);
+// const numberOfVowels = (input) => {
+//   let output = 0;
+//   const arr = input.split("");
+//   for (let el of arr) {
+//     if (vowels.includes(el.toLowerCase())) {
+//       output++;
+//     }
+//   }
+//   return output;
+// };
+// const result = numberOfVowels(input);
 //console.log(result);
 
 //solution 2
@@ -45,7 +45,7 @@ const withReduce = (input) =>
     if (vowels.includes(curr.toLowerCase())) return accu + 1;
     else return accu;
   }, 0);
-//console.log(withReduce(input));
+console.log(withReduce(input));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -57,8 +57,21 @@ Example:
 
 Input: "madam"
 Output: true
-Input: "hello"
+Input: "hello" olleh
 Output: false*/
+const word = "hello";
+const isPalindrome = (str) => {
+  // const reversedStr = str.split("").reverse().join("");
+  // if (str === reversedStr) return true;
+  // else return false;
+  for (let i = 0; i < str.length; i++) {
+    //console.log(str.length - i - 1);
+    if (str[i] !== str[str.length - 1 - i]) return false;
+  }
+  return true;
+};
+console.log(isPalindrome(word));
+// console.log(word);
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -75,7 +88,7 @@ const numbers = [5, 1, 9, 3];
 const maxNumber = (numbers) => {
   return Math.max(...numbers);
 };
-//console.log(maxNumber(numbers));
+console.log(maxNumber(numbers));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -92,7 +105,7 @@ const duplicateArray = [1, 2, 2, 3, 4, 4];
 const removeDuplicate = (arr) => {
   return [...new Set(arr)];
 };
-//console.log(removeDuplicate(duplicateArray));
+console.log(removeDuplicate(duplicateArray));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -107,7 +120,7 @@ Output: 10*/
 
 const numArr = [1, 2, 3, 4];
 const sumOfAllNumbers = (arr) => arr.reduce((accu, curr) => accu + curr, 0);
-//console.log(sumOfAllNumbers(numArr));
+console.log(sumOfAllNumbers(numArr));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -122,7 +135,7 @@ Output: [2, 4, 6]*/
 
 const mixNum = [1, 2, 3, 4, 5, 6];
 const allEvenNumbers = (arr) => arr.filter((el) => el % 2 === 0);
-//console.log(allEvenNumbers(mixNum));
+console.log(allEvenNumbers(mixNum));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -141,7 +154,7 @@ const capitalizeTheFirstLetter = (str) =>
     .split(" ")
     .map((el) => (el ? el[0].toUpperCase() + el.slice(1) : ""))
     .join(" ");
-//console.log(capitalizeTheFirstLetter(sentence));
+console.log(capitalizeTheFirstLetter(sentence));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -154,16 +167,17 @@ Example:
 Input: 5
 Output: 120*/
 
-const aNumber = 3;
+const aNumber = 5;
 const factorialOfANumber = (num) => {
   if (num < 0) return 0;
   let total = 1;
   for (let i = 1; i <= num; i++) {
+    //console.log(i, total);
     total = total * i;
   }
   return total;
 };
-//console.log(factorialOfANumber(aNumber));
+console.log(factorialOfANumber(aNumber));
 
 /***************************************************************************** */
 /***************************************************************************** */
