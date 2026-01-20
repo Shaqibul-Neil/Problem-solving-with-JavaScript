@@ -10,7 +10,7 @@ const string2 = "hello";
 const reversedString = (value) => value.split("").reverse().join("");
 const newString = reversedString(string);
 const newString2 = reversedString(string2);
-console.log({ ["I'm a coder"]: newString }, { ["hello"]: newString2 });
+//console.log({ ["I'm a coder"]: newString }, { ["hello"]: newString2 });
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -45,7 +45,7 @@ const withReduce = (input) =>
     if (vowels.includes(curr.toLowerCase())) return accu + 1;
     else return accu;
   }, 0);
-console.log(withReduce(input));
+//console.log(withReduce(input));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -70,7 +70,7 @@ const isPalindrome = (str) => {
   }
   return true;
 };
-console.log(isPalindrome(word));
+//console.log(isPalindrome(word));
 // console.log(word);
 
 /***************************************************************************** */
@@ -88,7 +88,7 @@ const numbers = [5, 1, 9, 3];
 const maxNumber = (numbers) => {
   return Math.max(...numbers);
 };
-console.log(maxNumber(numbers));
+//console.log(maxNumber(numbers));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -105,7 +105,7 @@ const duplicateArray = [1, 2, 2, 3, 4, 4];
 const removeDuplicate = (arr) => {
   return [...new Set(arr)];
 };
-console.log(removeDuplicate(duplicateArray));
+//console.log(removeDuplicate(duplicateArray));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -120,7 +120,7 @@ Output: 10*/
 
 const numArr = [1, 2, 3, 4];
 const sumOfAllNumbers = (arr) => arr.reduce((accu, curr) => accu + curr, 0);
-console.log(sumOfAllNumbers(numArr));
+//console.log(sumOfAllNumbers(numArr));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -135,7 +135,7 @@ Output: [2, 4, 6]*/
 
 const mixNum = [1, 2, 3, 4, 5, 6];
 const allEvenNumbers = (arr) => arr.filter((el) => el % 2 === 0);
-console.log(allEvenNumbers(mixNum));
+//console.log(allEvenNumbers(mixNum));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -154,7 +154,7 @@ const capitalizeTheFirstLetter = (str) =>
     .split(" ")
     .map((el) => (el ? el[0].toUpperCase() + el.slice(1) : ""))
     .join(" ");
-console.log(capitalizeTheFirstLetter(sentence));
+//console.log(capitalizeTheFirstLetter(sentence));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -177,7 +177,7 @@ const factorialOfANumber = (num) => {
   }
   return total;
 };
-console.log(factorialOfANumber(aNumber));
+//console.log(factorialOfANumber(aNumber));
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -203,4 +203,42 @@ const printsNumbers = (start, end) => {
   }
 };
 
-printsNumbers(1, 20);
+//printsNumbers(1, 20);
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 11:Verify a prime number?*/
+const isPrime = (num) => {
+  if (num <= 1) return false;
+
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false; //if divisible then not a prime
+  }
+  return true;
+};
+//console.log(isPrime(23));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 12: Find all prime factors of a number?*/
+
+const primeFactors = (num) => {
+  let factors = [];
+  if (num <= 1) return null;
+
+  for (let i = 2; i <= num; i++) {
+    while (num % i === 0) {
+      factors.push(i);
+      num = num / i; //i=2 → 12 % 2 === 0 → push 2, num=6-->i=2 → 6 % 2 === 0 → push 2, num=3-->i=2 → 3 % 2 !== 0 → move next i while use koro karon same number multiple times divide hote pare, ar amra chai sob gulo prime factor ber korte.
+    }
+  }
+  return factors;
+};
+//console.log(primeFactors(13));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 12: Get nth Fibonacci number?*/
