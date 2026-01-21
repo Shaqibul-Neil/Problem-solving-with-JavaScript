@@ -269,7 +269,7 @@ const greatestCommonDivisor = (x, y) => {
   }
   return x; //last non-zero x = GCD
 };
-console.log(greatestCommonDivisor(48, 18)); //18)48( --->12)18(-->6)12(-->0;
+//console.log(greatestCommonDivisor(48, 18)); //18)48( --->12)18(-->6)12(-->0;
 
 /***************************************************************************** */
 /***************************************************************************** */
@@ -278,4 +278,30 @@ console.log(greatestCommonDivisor(48, 18)); //18)48( --->12)18(-->6)12(-->0;
 const remDuplicate = (arr) => {
   return [...new Set(arr)];
 };
-console.log(remDuplicate([1, 1, 2, 3, 4, 2, 3, 5]));
+//console.log(remDuplicate([1, 1, 2, 3, 4, 2, 3, 5]));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 15:merge two sorted array?*/
+const arr1 = [1, 3, 5, 5, 7, 9];
+const arr2 = [2, 4, 6, 8, 10];
+
+const mergeArr = (arr1, arr2) => {
+  const merge = [...new Set([...arr1, ...arr2].sort((a, b) => a - b))];
+  return merge;
+};
+//console.log(mergeArr(arr1, arr2));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 16:Swap two numbers without using a temp variable?*/
+let num1 = 5;
+let num2 = 7;
+console.log(num1, num2);
+// const num3 = num1;
+// num1 = num2;
+// num2 = num3;
+[num1, num2] = [num2, num1];
+console.log(num1, num2);
