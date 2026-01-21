@@ -242,3 +242,21 @@ const primeFactors = (num) => {
 /***************************************************************************** */
 
 /*Problem 12: Get nth Fibonacci number?*/
+const getFibonacci = (num) => {
+  const arr = [0, 1];
+  for (let i = 1; i <= num - 2; i++) {
+    const prev = arr[arr.length - 1];
+    //console.log("prev", prev);
+    const next = arr[arr.length - 2];
+    //console.log("next", next);
+    const fibo = prev + next;
+    arr.push(fibo);
+  }
+  return arr;
+};
+//console.log(getFibonacci(10));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Find the greatest common divisor of two numbers?*/
