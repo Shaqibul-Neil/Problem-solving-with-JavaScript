@@ -259,4 +259,23 @@ const getFibonacci = (num) => {
 /***************************************************************************** */
 /***************************************************************************** */
 
-/*Find the greatest common divisor of two numbers?*/
+/*Problem 13: Find the greatest common divisor of two numbers?*/
+const greatestCommonDivisor = (x, y) => {
+  while (y !== 0) {
+    //loop cholbe jotokkhon remainder 0 na hoy
+    const remainder = x % y; //calculate remainder
+    x = y; // shift numbers
+    y = remainder; //update y with remainder
+  }
+  return x; //last non-zero x = GCD
+};
+console.log(greatestCommonDivisor(48, 18)); //18)48( --->12)18(-->6)12(-->0;
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 14:Remove duplicate members from an array?*/
+const remDuplicate = (arr) => {
+  return [...new Set(arr)];
+};
+console.log(remDuplicate([1, 1, 2, 3, 4, 2, 3, 5]));
