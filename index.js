@@ -355,4 +355,31 @@ const remDupCharString = (str) => {
   const strArr = str.split("");
   return [...new Set(strArr)].join("");
 };
-console.log(remDupCharString("asdasd"));
+//console.log(remDupCharString("asdasd"));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 21: How will you verify a word as palindrome?*/
+const isWordPalindrome = (str) => {
+  const word = str.toLowerCase();
+  for (let i = 0; i <= word.length - 1; i++) {
+    console.log("Checking:", word[i], word[word.length - 1 - i]); // match/mismatch
+    if (word[i] !== word[word.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+};
+// console.log(isWordPalindrome("Madam"));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 22: Generate random between 5 to 7 by using defined function.*/
+const genRandom = (a, b) => {
+  const min = Math.min(a, b);
+  const max = Math.max(a, b);
+  return Math.random() * (max - min) + min;
+};
+//console.log(genRandom(7, 5));
