@@ -363,7 +363,7 @@ const remDupCharString = (str) => {
 /*Problem 21: How will you verify a word as palindrome?*/
 const isWordPalindrome = (str) => {
   const word = str.toLowerCase();
-  for (let i = 0; i <= word.length - 1; i++) {
+  for (let i = 0; i < word.length / 2; i++) {
     console.log("Checking:", word[i], word[word.length - 1 - i]); // match/mismatch
     if (word[i] !== word[word.length - 1 - i]) {
       return false;
@@ -383,3 +383,21 @@ const genRandom = (a, b) => {
   return Math.random() * (max - min) + min;
 };
 //console.log(genRandom(7, 5));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 23: Find missing number from unsorted array of integers.*/
+const missingNumberArray = (arr) => {
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+
+  for (let i = min; i <= max; i++) {
+    if (!arr.includes(i)) {
+      return i;
+    }
+  }
+};
+// console.log(missingNumberArray([10, 12, 11, 14]));
+// console.log(missingNumberArray([2, 3, 4, 6]));
+// console.log(missingNumberArray([1, 3, 4]));
