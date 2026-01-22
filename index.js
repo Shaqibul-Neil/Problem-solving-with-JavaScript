@@ -238,6 +238,7 @@ const primeFactors = (num) => {
 };
 //console.log(primeFactors(13));
 
+//21 January,2025
 /***************************************************************************** */
 /***************************************************************************** */
 
@@ -299,9 +300,49 @@ const mergeArr = (arr1, arr2) => {
 /*Problem 16:Swap two numbers without using a temp variable?*/
 let num1 = 5;
 let num2 = 7;
-console.log(num1, num2);
+//console.log(num1, num2);
 // const num3 = num1;
 // num1 = num2;
 // num2 = num3;
 [num1, num2] = [num2, num1];
-console.log(num1, num2);
+//console.log(num1, num2);
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 17:Reverse a string in JavaScript?*/
+const revString = (str) => {
+  return str.split("").reverse().join("");
+};
+//console.log(revString("hello"));
+
+//22 January,2025
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 18: How would you reverse words in a sentence?*/
+const revWord = (sentence) => {
+  return sentence.trim().split(/\s+/).reverse().join(" "); //if multiple spaces in the code
+};
+//console.log(revWord("I am a   student"));
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 19: Find the first non repeating char in a string??*/
+const firstNonRepeatChar = (word) => {
+  // Type check
+  if (typeof word !== "string") return null;
+  for (let i = 0; i <= word.length - 1; i++) {
+    if (word.indexOf(word[i]) === word.lastIndexOf(word[i])) {
+      return word[i]; // first non-repeating found
+    }
+  }
+  // No non-repeating char found
+  return null;
+};
+// console.log(firstNonRepeatChar("aabbddcc")); // null
+// console.log(firstNonRepeatChar("abbdc")); // "a"
+// console.log(firstNonRepeatChar("")); // null
+// console.log(firstNonRepeatChar("x")); // "x"
+// console.log(firstNonRepeatChar(123)); // null
