@@ -346,3 +346,13 @@ const firstNonRepeatChar = (word) => {
 // console.log(firstNonRepeatChar("")); // null
 // console.log(firstNonRepeatChar("x")); // "x"
 // console.log(firstNonRepeatChar(123)); // null
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 20: Remove duplicate characters from a sting??*/
+const remDupCharString = (str) => {
+  const strArr = str.split("");
+  return [...new Set(strArr)].join("");
+};
+console.log(remDupCharString("asdasd"));
