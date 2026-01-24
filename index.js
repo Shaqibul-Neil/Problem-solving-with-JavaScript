@@ -436,12 +436,30 @@ const equal2Given = (arr, num) => {
 /***************************************************************************** */
 
 /*Problem 25: Find the largest sum of any two elements?*/
-
+const largestSum = (arr) => {
+  const sumArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      sumArr.push(arr[i] + arr[j]);
+    }
+  }
+  return Math.max(...new Set(sumArr));
+};
+//console.log(largestSum([1, 2, 3, 4, 5]));
+//Smart way
+const largeSum = (arr) => {
+  const sortDsc = [...arr].sort((a, b) => b - a);
+  return sortDsc[0] + sortDsc[1];
+};
+//console.log(largeSum([1, 2, 3, 4, 5]));
 /***************************************************************************** */
 /***************************************************************************** */
 
 /*Problem 26: Total number of zeros from 1 upto n*/
-
+const numberOfZero = (n) => {
+  return n.split("");
+};
+console.log(numberOfZero(20));
 /***************************************************************************** */
 /***************************************************************************** */
 
