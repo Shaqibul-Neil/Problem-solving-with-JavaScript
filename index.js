@@ -457,9 +457,32 @@ const largeSum = (arr) => {
 
 /*Problem 26: Total number of zeros from 1 upto n*/
 const numberOfZero = (n) => {
-  return n.split("");
+  let count = 0;
+  for (let i = 1; i <= n; i++) {
+    let num = i;
+    while (num > 0) {
+      if (num % 10 === 0) count++;
+      num = Math.floor(num / 10);
+    }
+  }
+  return count;
 };
-console.log(numberOfZero(20));
+// console.log(numberOfZero(100));
+// console.log(numberOfZero(19));
+// console.log(numberOfZero(101));
+//Easier Fix
+const totalZero = (n) => {
+  let count = 0;
+  for (let i = 1; i <= n; i++) {
+    const arr = i.toString().split("");
+    //console.log(arr);
+    const zeros = arr.filter((d) => d === "0").length;
+    //console.log("zeros", zeros);
+    count += zeros;
+  }
+  return count;
+};
+//console.log(totalZero(101));
 /***************************************************************************** */
 /***************************************************************************** */
 
