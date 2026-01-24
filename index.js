@@ -487,7 +487,14 @@ const totalZero = (n) => {
 /***************************************************************************** */
 
 /*Problem 27: Check whether a given string is a substring of bigger string*/
-
+const substringOfBiggerString = (str1, str2) => {
+  if (str1.includes(str2)) return true;
+  return false;
+};
+// console.log(substringOfBiggerString("hello world", "world"));
+// console.log(substringOfBiggerString("hello world", "lo wo"));
+// console.log(substringOfBiggerString("hello world", "abc"));
+// console.log(substringOfBiggerString("hello world", ""));
 /***************************************************************************** */
 /***************************************************************************** */
 
