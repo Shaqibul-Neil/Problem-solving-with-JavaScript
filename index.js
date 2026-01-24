@@ -401,3 +401,53 @@ const missingNumberArray = (arr) => {
 // console.log(missingNumberArray([10, 12, 11, 14]));
 // console.log(missingNumberArray([2, 3, 4, 6]));
 // console.log(missingNumberArray([1, 3, 4]));
+
+//23 January,2025
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 24: Get two numbers that equal to a given number?*/
+const equalToGiven = (arr, num) => {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      console.log(i, j);
+      if (arr[i] + arr[j] === num) return [arr[i], arr[j]];
+    }
+  }
+};
+//console.log(equalToGiven([2, 7, 11, 15], 22));
+//Smart solution (HashMap / Set) — O(n)
+const equal2Given = (arr, num) => {
+  const seen = new Set();
+  //console.log(seen);
+  for (value of arr) {
+    const needed = num - value;
+    //console.log(needed);
+    if (seen.has(needed)) {
+      return [needed, value];
+    }
+    seen.add(value);
+    //console.log(seen);
+  }
+  return null;
+};
+//console.log(equal2Given([2, 7, 11, 15], 22));
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 25: Find the largest sum of any two elements?*/
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 26: Total number of zeros from 1 upto n*/
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 27: Check whether a given string is a substring of bigger string*/
+
+/***************************************************************************** */
+/***************************************************************************** */
+
+/*Problem 28: Get permutations of a string*/
