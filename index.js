@@ -498,4 +498,23 @@ const substringOfBiggerString = (str1, str2) => {
 /***************************************************************************** */
 /***************************************************************************** */
 
+//27 January,2025
+/***************************************************************************** */
+/***************************************************************************** */
 /*Problem 28: Get permutations of a string*/
+/***************************************************************************** */
+/*Problem 29: Given an integer x, return true if x is a palindrome, and false otherwise.*/
+
+const isNumberPalindrome = (x) => {
+  const str = x.toString().split("");
+  if (str.includes("-")) return false;
+  for (let i = 0; i < Math.floor(str.length / 2); i++) {
+    if (str[i] !== str[str.length - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+};
+console.log(isNumberPalindrome(10));
+console.log(isNumberPalindrome(121));
+console.log(isNumberPalindrome(-121));
