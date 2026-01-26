@@ -504,17 +504,53 @@ const substringOfBiggerString = (str1, str2) => {
 /*Problem 28: Get permutations of a string*/
 /***************************************************************************** */
 /*Problem 29: Given an integer x, return true if x is a palindrome, and false otherwise.*/
+//string Approach
+// const isNumberPalindrome = (x) => {
+//   const str = x.toString().split("");
+//   if (str.includes("-")) return false;
+//   for (let i = 0; i < Math.floor(str.length / 2); i++) {
+//     if (str[i] !== str[str.length - 1 - i]) {
+//       return false;
+//     }
+//   }
+//   return true;
+// };
+// console.log(isNumberPalindrome(10));
+// console.log(isNumberPalindrome(121));
+// console.log(isNumberPalindrome(-121));
 
+//Number Approach
 const isNumberPalindrome = (x) => {
-  const str = x.toString().split("");
-  if (str.includes("-")) return false;
-  for (let i = 0; i < Math.floor(str.length / 2); i++) {
-    if (str[i] !== str[str.length - 1 - i]) {
-      return false;
-    }
+  //last digit 0 but the whole number is not 0 --->10 % 10 = 0(last digit 0) AND x !== 0 means 10 !== 0 → true ✅ 0 !== 0 → false ❌
+  if (x < 0 || (x % 10 === 0 && x !== 0)) return false;
+  let reversedHalf = 0;
+  while (x > reversedHalf) {
+    const lastDigit = x % 10; //121 % 10 = 1
+    reversedHalf = reversedHalf * 10 + lastDigit; //0*10+1=1--> 1*10+2 =12
+    x = Math.trunc(x / 10); //cut last digit--> 121/10=12-->12/10=1
   }
-  return true;
+  console.log("reversedHalf", reversedHalf);
+  console.log("x", x);
+  return x === reversedHalf || x === Math.trunc(reversedHalf / 10);
+  /*✅ Case 1: Even length (1221)
+  x = 12
+  reversedHalf = 12 
+  👉 সরাসরি equal
+  ➡️ palindrome ✅
+  */
+  /*✅ Case 2: Odd length (121) 
+  x = 1
+reversedHalf = 12
+👉 মাঝের digit (2) ignore করতে হবে
+তাই:
+
+Math.trunc(12 / 10) = 1
+👉 এখন compare:
+
+x === 1 ✔
+  */
 };
-console.log(isNumberPalindrome(10));
-console.log(isNumberPalindrome(121));
-console.log(isNumberPalindrome(-121));
+console.log(isNumberPalindrome(123));
+console.log(isNumberPalindrome(123321));
+//Loop condition: x > reversedHalf → 12345 > 0 ✅
+//Check: x > reversedHalf → 1234 > 5 ✅ → loop continues
