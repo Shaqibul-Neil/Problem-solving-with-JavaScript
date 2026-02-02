@@ -501,9 +501,7 @@ const substringOfBiggerString = (str1, str2) => {
 //27 January,2025
 /***************************************************************************** */
 /***************************************************************************** */
-/*Problem 28: Get permutations of a string*/
-/***************************************************************************** */
-/*Problem 29: Given an integer x, return true if x is a palindrome, and false otherwise.*/
+/*Problem 28: Given an integer x, return true if x is a palindrome, and false otherwise.*/
 //string Approach
 // const isNumberPalindrome = (x) => {
 //   const str = x.toString().split("");
@@ -550,7 +548,73 @@ Math.trunc(12 / 10) = 1
 x === 1 ✔
   */
 };
-console.log(isNumberPalindrome(123));
-console.log(isNumberPalindrome(123321));
+// console.log(isNumberPalindrome(123));
+// console.log(isNumberPalindrome(123321));
 //Loop condition: x > reversedHalf → 12345 > 0 ✅
 //Check: x > reversedHalf → 1234 > 5 ✅ → loop continues
+
+/***************************************************************************** */
+/*Problem 29: Get permutations of a string*/
+function updateWord(wordList, beginWord, endWord) {
+  // your code goes here
+  if (!wordList.includes(beginWord) || !wordList.includes(endWord))
+    return "none";
+  return wordList.indexOf(endWord) - wordList.indexOf(beginWord);
+}
+
+// debug your code below
+const beginWord = "hit";
+const endWord = "cog";
+const wordList = ["hit", "hot", "dot", "dog"];
+// console.log(updateWord(wordList, beginWord, endWord));
+
+/***************************************************************************** */
+/*Problem 30: Roman to Integer*/
+const roman = "III";
+const valueOf = (char) => {
+  switch (char) {
+    case "I":
+      return 1;
+    case "V":
+      return 5;
+    case "X":
+      return 10;
+    case "L":
+      return 50;
+    case "C":
+      return 100;
+    case "D":
+      return 500;
+    case "M":
+      return 1000;
+  }
+};
+const romanToInteger = (s) => {
+  const arr = s.split("");
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    const current = valueOf(arr[i]);
+    const next = valueOf(arr[i + 1]) || 0;
+    if (current < next) {
+      console.log(sum);
+      sum -= current;
+      console.log(sum);
+    } else sum += current;
+  }
+  return sum;
+};
+
+//romanToInteger("MCMXCIV");
+/**Step trace (simplified):
+
+i=0: M=1000, next=C=100 → 1000>100 → sum=1000
+i=1: C=100, next=M=1000 → 100<1000 → sum=1000-100=900
+i=2: M=1000, next=X=10 → 1000>10 → sum=900+1000=1900
+i=3: X=10, next=C=100 → 10<100 → sum=1900-10=1890
+i=4: C=100, next=I=1 → 100>1 → sum=1890+100=1990
+i=5: I=1, next=V=5 → 1<5 → sum=1990-1=1989
+i=6: V=5, next=undefined → 5>0 → sum=1989+5=1994 */
+
+//Solution 2:  Problem is simpler to solve by working the string from back to front and using a map.
+//Solution 3:  তুমি চাইলে split("") বাদ দিয়ে সরাসরি string iterate
