@@ -618,3 +618,111 @@ i=6: V=5, next=undefined → 5>0 → sum=1989+5=1994 */
 
 //Solution 2:  Problem is simpler to solve by working the string from back to front and using a map.
 //Solution 3:  তুমি চাইলে split("") বাদ দিয়ে সরাসরি string iterate
+//Solution 4:   Precompute all valid numerals (single + pairs) in map Make a map of "I":1, "IV":4, "V":5… "CM":900, "M":1000
+//Solution 5:   Regex + reduce (fancy functional style)
+//Solution 6:   Recursive approach
+
+/***************************************************************************** */
+/*Problem 31: Longest common prefix string*/
+/**Write a function to find the longest common prefix string amongst an array of strings.
+
+If there is no common prefix, return an empty string "".
+Example 1:
+
+Input: strs = ["flower","flow","flight"]
+Output: "fl" */
+const longestCommonPrefix = (arr) => {
+  let shortest = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i].length < shortest.length) {
+      shortest = arr[i];
+    }
+  }
+  for (let i = 0; i < shortest.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[j][i] === shortest[i]) {
+        console.log(arr[j][i]);
+      }
+    }
+  }
+};
+// console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+const january = 31;
+const numberOfPushups = (x) => {
+  if (Number.isNaN(x)) return;
+  else return january * x;
+};
+//console.log(numberOfPushups(100));
+
+/***************************************************************************** */
+/*Problem 32: occurrences of four*/
+/**Impressed by the power of this number, Karan has begun to look for occurrences of four anywhere. */
+
+//Solution 1
+// const occurrencesOfFour = (x) => {
+//   const arr = x.toString().split("");
+
+//   let counter = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] === "4") {
+//       counter += 1;
+//     }
+//   }
+//   return counter;
+// };
+//Solution 2
+const oc2 = (x) => {
+  return x
+    .toString()
+    .split("")
+    .reduce((accu, curr) => (curr === "4" ? (accu += 1) : accu), 0);
+};
+
+//solution 3
+const oc3 = (x) => {
+  let counter = 0;
+  while (x > 0) {
+    const digit = x % 10;
+    if (digit === 4) {
+      counter += 1;
+    }
+    console.log("x", x);
+    x = Math.floor(x / 10);
+    console.log("x/10", x);
+  }
+  return counter;
+};
+// console.log(oc3(4444));
+/**x 4444
+x/10 444
+x 444
+x/10 44
+x 44
+x/10 4
+x 4
+x/10 0 */
+
+/*const fs = require('fs');
+
+
+const input = fs.readFileSync(0, 'utf8').trim().split('\n');//input is an array with 1st index for how many inputs are there [5,447474,228,6664,40,81] --> here 5 is the number of inputs from the question
+
+const T = Number(input[0]); // Number of inputs--> T=5 means i need to work with 5 numbers
+
+const occurrencesOfFour = (x) => {
+  const arr = x.toString().split("");
+  let counter = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === "4") {
+      counter += 1;
+    }
+  }
+  return counter;
+};
+
+//now loop over the rest of the inputs. means i need to work it 5 times
+for (let i = 1; i <= T; i++) {
+  const num = Number(input[i]);
+  console.log(occurrencesOfFour(num));
+} */
