@@ -726,3 +726,14 @@ for (let i = 1; i <= T; i++) {
   const num = Number(input[i]);
   console.log(occurrencesOfFour(num));
 } */
+
+/***************************************************************************** */
+/*Problem 33: Protein Diet*/
+/**
+You consume X grams of protein daily. A balanced diet requires at least Y grams of protein per day. Determine whether your daily protein intake fulfills the recommended requirement. The daily protein intake is considered fulfilled if and only if 
+X is greater than or equal to Y. */
+
+const consumeProtein = (x, y) => {
+  return x >= y ? "YES" : "NO";
+};
+console.log(consumeProtein(80, 65));
