@@ -631,21 +631,21 @@ Example 1:
 
 Input: strs = ["flower","flow","flight"]
 Output: "fl" */
-const longestCommonPrefix = (arr) => {
-  let shortest = arr[0];
-  for (let i = 1; i < arr.length; i++) {
-    if (arr[i].length < shortest.length) {
-      shortest = arr[i];
-    }
-  }
-  for (let i = 0; i < shortest.length; i++) {
-    for (let j = 0; j < arr.length; j++) {
-      if (arr[j][i] === shortest[i]) {
-        console.log(arr[j][i]);
-      }
-    }
-  }
-};
+// const longestCommonPrefix = (arr) => {
+//   let shortest = arr[0];
+//   for (let i = 1; i < arr.length; i++) {
+//     if (arr[i].length < shortest.length) {
+//       shortest = arr[i];
+//     }
+//   }
+//   for (let i = 0; i < shortest.length; i++) {
+//     for (let j = 0; j < arr.length; j++) {
+//       if (arr[j][i] === shortest[i]) {
+//         console.log(arr[j][i]);
+//       }
+//     }
+//   }
+// };
 // console.log(longestCommonPrefix(["flower", "flow", "flight"]));
 
 const january = 31;
@@ -736,4 +736,29 @@ X is greater than or equal to Y. */
 const consumeProtein = (x, y) => {
   return x >= y ? "YES" : "NO";
 };
-console.log(consumeProtein(80, 65));
+//console.log(consumeProtein(80, 65));
+
+/***************************************************************************** */
+/*Problem 34: Longest Common Prefix*/
+/**
+Write a function to find the longest common prefix string amongst an array of strings.
+If there is no common prefix, return an empty string "".
+Example 1:
+Input: strs = ["flower","flow","flight"]
+Output: "fl" */
+
+const longestCommonPrefix = (arr) => {
+  if (arr.length === 0) return "";
+  let prefix = arr[0]; //initially prefix = flower
+  for (let i = 1; i < arr.length; i++) {
+    //compare with 2nd word like arr[1]= flow and prefix =flower
+    while (arr[i].indexOf(prefix) !== 0) {
+      //flow.indexOf(flower)-->-1(mismatch)
+      prefix = prefix.substring(0, prefix.length - 1); //shrink by one letter-->flowe -->again flow.indexOf(flowe)-->mismatch shrink 1-->so on and so on-->flow.indexOf(flow)-->0 cz index of return 0 if matched then loop stops and return prefix. dn comes 3rd word like arr[2]= flight and prefix now is =flow and then repeats the process
+    }
+  }
+  return prefix;
+};
+console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+console.log(longestCommonPrefix(["dog", "racecar", "car"]));
+//console.log("flow".substring(0, "flow".length - 1)); -->flow
