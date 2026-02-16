@@ -3,8 +3,10 @@ Given an integer array nums sorted in non-decreasing order, remove the duplicate
 Consider the number of unique elements in nums to be k​​​​​​​​​​​​​​. After removing duplicates, return the number of unique elements k.
 The first k elements of nums should contain the unique numbers in sorted order. The remaining elements beyond index k - 1 can be ignored. */
 
+//Solution 1: Best
+
 const removeDuplicatedFromSortedArray = (arr) => {
-  if (arr.length === 0) return;
+  if (arr.length === 0) return 0;
   let unique = arr[0]; //1 arr[unique]--> arr[1]=1
   let k = 1;
   for (let i = 1; i < arr.length; i++) {
@@ -16,7 +18,21 @@ const removeDuplicatedFromSortedArray = (arr) => {
   }
   return k;
 };
-console.log(removeDuplicatedFromSortedArray([1, 1, 1, 1])); //[1,2,3,1,2]
+console.log("1st", removeDuplicatedFromSortedArray([1, 1, 2, 2, 3])); //[1,2,3,1,2]
+
+//Solution 2:
+const removeDuplicate = (arr) => {
+  let position = 1;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] !== arr[i - 1]) {
+      //present position and tar ager position jdi same na hoi tahole
+      arr[position] = arr[i];
+      position++;
+    }
+  }
+  return arr;
+};
+console.log("2nd", removeDuplicatedFromSortedArray([1, 1, 2, 2, 3]));
 
 /**Full Mapping / Thought Process Explained
 
