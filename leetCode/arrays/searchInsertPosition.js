@@ -32,4 +32,4 @@ const searchInsert = (arr, target) => {
   return arr.length;
 };
 
-console.log(searchInsert([1, 3, 5, 6], 7));
+console.log(searchInsert([1, 3, 5, 6, 8], 7));
